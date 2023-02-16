@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <title>Mensagem</title>
+</head>
+<body>
+<div class="w3-container w3-teal">
+ <h1>
+<?php
+
+$formapagamento;
+$descontoDeposito;
+$descontoBoleto;
+$descontoCartaoCredito;
+$n1 = $_POST['txtValorCompra']; 
+
+ if($_POST['cmbPag'] == "deposito" )
+ {
+  $descontoDeposito = "10%";
+ $mediaDeposito = ($n1*10)/100;
+ $valorpagarDeposito = ($n1-$mediaDeposito);
+
+  echo "PROMOÇÃO DO MÊS DE ANIVERSÁRIO! "."<br>";
+  echo "".$_POST['txtNome']." ! <br>"; 
+  echo "Valor da Compra sem desconto: R$ ".$_POST['txtValorCompra']."<br>";
+ echo "Forma de pagamento escolhido: ".$_POST['cmbPag']."<br>";
+ echo "".$_POST['txtNome']."! Você economizou no Deposito".$mediaDeposito."!!! <br>";
+ echo "".$_POST['txtNome']."! Valor a Pagar ".$valorpagarDeposito."!!! <br>";
+ echo "Desconto de Deposito:".$descontoDeposito."<br>";
+ }
+else if ($_POST['cmbPag'] == "boleto")
+ {
+  $descontoBoleto = "8%";
+  $mediaBoleto = ($n1*8)/100;
+  $valorpagarBoleto = ($n1-$mediaBoleto);
+
+  echo "PROMOÇÃO DO MÊS DE ANIVERSÁRIO! "."<br>";
+  echo "".$_POST['txtNome']." ! <br>"; 
+  echo "Valor da Compra: R$ ".$_POST['txtValorCompra']."<br>";
+ echo "Forma de pagamento escolhido: ".$_POST['cmbPag']."<br>";
+  echo "".$_POST['txtNome']."! Valor a Pagar ".$valorpagarBoleto."!!! <br>";
+  echo "".$_POST['txtNome']."! Você economizou no Boleto".$mediaBoleto."!!! <br>";
+  echo "Desconto do Boleto:".$descontoBoleto."<br>";
+  
+ }
+ else
+ {
+  $descontoCartaoCredito = "0%";
+  $valorpagarCartaoCredito = ($n1);
+
+  echo "PROMOÇÃO DO MÊS DE ANIVERSÁRIO!  "."<br>";
+  echo "".$_POST['txtNome']." ! <br>"; 
+  echo "Valor da Compra sem desconto: R$ ".$_POST['txtValorCompra']."<br>";
+ echo "Forma de pagamento escolhido: ".$_POST['cmbPag']."<br>";
+  echo "".$_POST['txtNome']."! Você não economizou no Cartão de Crédito ".$descontoCartaoCredito."!!! <br>";
+  echo "".$_POST['txtNome']."! Valor a Pagar ".$valorpagarCartaoCredito."!!! <br>";
+  echo "Desconto de Cartão de Crédito:".$descontoCartaoCredito."<br>";
+ }
+
+ 
+
+ ?>
+ </h1> </div>
+</body>
+</html>
